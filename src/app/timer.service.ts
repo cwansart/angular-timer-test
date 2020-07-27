@@ -1,12 +1,10 @@
-import { Injectable, NgZone, FactoryProvider, APP_INITIALIZER, OnInit } from '@angular/core';
-import { Subscription, timer, BehaviorSubject } from 'rxjs';
+import { Injectable, NgZone } from '@angular/core';
+import { timer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TimerService {
-
-  private subscription = Subscription.EMPTY;
 
   public triggerTime = '2020-07-27T11:31:00';
 
@@ -16,7 +14,7 @@ export class TimerService {
     this.addMessage('initialized TimerService');
     this.zone.runOutsideAngular(() => {
       this.addMessage('running outside Angular');
-      this.subscription = timer(new Date(this.triggerTime)).subscribe(() => {
+      timer(new Date(this.triggerTime)).subscribe(() => {
         const now = new Date().toISOString();
         this.addMessage(`Timer called at: ${now}`);
       });
