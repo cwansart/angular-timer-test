@@ -8,9 +8,14 @@ import { TimerService } from './timer.service';
 })
 export class AppComponent implements AfterViewInit {
 
+  public now: Date;
+
   public triggerTime: string;
 
   constructor(private timerService: TimerService) {
+    setInterval(() => {
+      this.now = new Date();
+    }, 1000);
     this.triggerTime = this.timerService.triggerTime;
   }
 

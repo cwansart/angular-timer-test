@@ -6,7 +6,7 @@ import { timer } from 'rxjs';
 })
 export class TimerService {
 
-  public triggerTime = '2020-07-27T11:31:00';
+  public triggerTime = '2020-07-27T12:09:00';
 
   constructor(private zone: NgZone) { }
 
